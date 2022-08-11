@@ -1,0 +1,150 @@
+<html>
+<head>
+ <script src=
+"https://code.jquery.com/jquery-2.2.4.min.js">
+  </script>
+<title>Site visit slot booking</title>
+<style>
+h1{
+	color:white;
+	background-color:darkcyan;
+	padding:20px;
+	text-decoration:bold;
+	}
+div#resform{
+				border-style:outset;
+				background-color:white;
+				width:600;
+				position:relative;
+				left:320px;
+		    }
+body{
+            background-image:url("ap.jpg");
+			background-position:center;
+			background-repeat:no-repeat;
+        }
+input[type=submit]{
+		  background-color:darkcyan;
+		  border: none;
+		  color: white;
+		  padding: 16px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  transition-duration: 0.4s;
+		  cursor: pointer;
+}
+input[type=submit]:hover {
+		  background-color:darkblue;
+		  color: white;
+}
+input[type=reset]{
+		  background-color:darkcyan;
+		  border: none;
+		  color: white;
+		  padding: 16px 32px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  font-size: 16px;
+		  margin: 4px 2px;
+		  transition-duration: 0.4s;
+		  cursor: pointer;
+}
+input[type=reset]:hover {
+		  background-color:darkblue;
+		  color:white;
+}
+</style>
+</head>
+<body>
+<h1><center>SITE VISIT SLOT BOOKING<center></h1>
+<div style="color:darkcyan;font-size:40">
+
+<div id="resform">
+<form id="bhk_enq1">
+<div style="font-size:30">
+<p style="color:black">Select your preference:</p></div>
+<label style="font-size:30;color:darkblue">BHK<span style="color:red">*</span></label>&nbsp &nbsp
+<font size=6>
+<input id="bhk2" type="radio" name="bhk" value="2" style="font-size=8px">2 BHK &nbsp &nbsp
+<input id="bhk3" type="radio" name="bhk" value="3" size=50>3 BHK
+</font>
+<br>
+<div style="font-size:30">
+<p style="color:black">Additional requirements:</p></div>
+<font size=6>
+<label style="font-size:35;color:darkblue">Vastu</label>&nbsp &nbsp 
+<input type="radio" name="vastu" value="n">North facing &nbsp 
+<input type="radio" name="vastu" value="e">East facing
+</font><br><br>
+<input type="submit">
+<input type="reset">
+
+</form></div>
+
+<script>
+	const form=document.getElementById('bhk_enq1');
+	form.addEventListener('submit',Bhk1)
+	async function Bhk1(event)
+	{
+		event.preventDefault()
+		b=$('input[name=bhk]:checked',
+                '#bhk_enq1').val();
+	
+		
+		v=$('input[name=vastu]:checked',
+                '#bhk_enq1').val();
+		//console.log(b);
+		if(!v){
+		const result=await fetch('/bhk-selec',{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json'
+			},	
+			body: JSON.stringify({
+				b
+			})
+		}).then((res)=>res.json())
+		
+		if(result.status === 'ok'){
+		//console.log("JIN IS WWH")
+		window.location.href="confirmvisit.html";
+		}
+		else{
+		alert(result.error)
+		}
+		console.log(result)
+		}
+		
+		else{
+		const result=await fetch('/bhk-selec1',{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json'
+			},	
+			body: JSON.stringify({
+				b,
+				v
+			})
+		}).then((res)=>res.json())
+		
+		if(result.status === 'ok'){
+		//console.log("JIN IS WWH")
+		window.location.href="confirmvisit.html";
+		}
+		else{
+		alert(result.error)
+		}
+		console.log(result)
+		
+		
+		}
+	}
+</script>
+
+
+</body>
+</html>

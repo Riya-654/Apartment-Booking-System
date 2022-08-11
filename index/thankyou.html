@@ -1,0 +1,66 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body bgcolor="#C0C0C0">
+	<center>
+	<img src="tick.png" alt="Blue Tick Mark" width="200px" height="200px">
+	<br><br>
+	<h1 style="color: blue;">THANK YOU</h1>
+	<h3>You have successfully booked your visit. <br>
+	We look forward to seeing you soon. </h3>
+	</center>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>thankyou</title>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body bgcolor="#C0C0C0">
+<div id="container"></div>
+<script type="text/babel">
+var dest=document.querySelector("#container");
+
+class Thankyou extends React.Component
+{
+render()
+{	
+	var sty={
+		textAlign:'center'
+		}
+		
+	var image={
+		height:'200px',
+		width:'200px'
+		}
+		
+	var txt={
+		color:'blue',
+		textAlign:'center',
+		fontSize:'25px'
+		}
+		
+	return(
+		<div style={sty}>
+		<img src="tick.png" alt="blue tick" style={image}></img>
+		<h1>THANK YOU</h1>
+		<div style={txt}>You have successfully booked your visit.<br/>
+	     We look forward to seeing you soon.</div>
+		</div>
+		 );
+	}
+}
+ReactDOM.render( <Thankyou/>,dest);
+</script>
+</body>
+</html>					
+		
+	

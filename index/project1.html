@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<style>
+ul {
+  list-style-type: none;
+  top: 0%;	
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1A0B38;
+  font-size:20px;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+	padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+</head>
+
+<body bgcolor="#1A0B38">
+
+<div id="container">
+
+</div>
+<script type="text/babel">
+
+	var dest=document.querySelector("#container");
+	
+	class Homepage extends React.Component
+	{		
+		render(){
+			
+				var con ={
+					position: 'relative',
+				  color: 'white',
+				  fontSize: '100px'	
+					}
+				var centered={
+				 position: 'absolute',
+				  top: '14%',
+				  left: '20%'
+				}
+				var logo={
+				  position: 'absolute',
+				  width:'70px',
+				  top: '5%',
+				 left: '45%',
+				  textAlign:'center'
+				}
+				var bgpic={
+				width:'100%',
+				top:'0%'
+				}
+				var dropdown={
+				position: 'absolute',
+				  top: '10px',
+				  left: '6px'
+				
+				}
+				var da={
+				width: '30px',
+			  height: '3px',
+			  backgroundColor: 'white',
+			  margin: '4px 0'
+			  }
+			  var dropbtn={
+			  backgroundColor: 'transparent', 
+			  border: 'none',
+			  cursor: 'pointer',
+				float:'left'
+				}
+				
+			var dropcon={
+			  position: 'absolute',
+			  display:'none',
+			  fontSize: '16px',
+			  backgroundColor: '#f1f1f1',
+			  minWidth: '10px',
+			  overflow: 'auto',
+			  textAlign:'center',
+			  boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+			  zIndex: '1'
+			}
+				return (
+					<div style={con}>
+						<ul>
+							  <li><a className="active" href="project1.html">Home</a></li>
+							  <li><a href="about1.html">About</a></li>
+							  <li><a href="http://localhost:9999/contact.html">Contact</a></li>
+						</ul>
+						<img src="ap.jpg" alt="Apartment Building" style={bgpic}></img>
+						<div style={centered}>RRR BUILDERS</div>
+						<div>
+						  <img src="ap_logo.jpg" alt="logo" style={logo}></img>
+						</div>
+						
+						
+					</div>
+					
+				);
+			
+			}
+	
+	}
+
+
+
+ReactDOM.render( <Homepage/>,dest);
+</script>
+<p align="center"> <font size="6"
+          color="white">
+        OUR TWO PROJECTS<br>
+	</font>
+<table align='center'>
+<figure>
+<tr>
+<td style="height:100px;width:100px;">
+<a href="jay.html" target="_blank"><img src="ap1.jpg" height="500px" width="500px" ></a>
+<a href="jay.html" target="_blank"><figcaption align='center'><font size="5" color="white">Lake Front</font></figcaption></a>
+</td>
+<td>
+</td>
+
+<td style="height:100px;width:100px;">
+<a href="ind.html" target="_blank"><img src="ap2.jpg" height="500px" width="500px" ></a><br/>
+<a href="ind.html" target="_blank"><figcaption align='center'><font size="5" color="white">Green Woods</font></figcaption></a>
+</td>
+</tr>
+</figure>
+</table>
+</p>
+</body>
+</html> 
+

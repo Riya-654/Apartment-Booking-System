@@ -1,0 +1,111 @@
+<html>
+    <head>
+        
+		 <style>		
+        body{
+            background-image:url("ap.jpg");
+			background-position:center;
+			background-repeat:no-repeat;
+			align:center;
+        }
+       
+        #container{
+            align-content: center;
+            width: 600px;
+            height: 400px;
+            padding: 2px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            margin-bottom: auto;
+            box-shadow: 0 0 10px;
+            background-color: white;
+           
+        }
+        #form div{
+		align-content: center;
+           display:block;
+           margin-top: 40px;
+           padding-left: 20px;
+        }
+        #form input{
+		align-content: center;
+            margin-left: 100px;
+            
+        }
+        #btn{
+		align-content: center;
+            padding:10px;
+            width:250px;
+            background-color: white; 
+            color: black; 
+            border: 2px solid #009999;
+
+        }
+        #btn:hover{
+		
+            background-color: #009999;
+            color: white;
+        }
+		
+    </style>
+    </head>
+   
+<body>
+<div id="container">
+                    <div >
+                        <div style="padding-left:20px"><img src="ap_logo.jpg" alt="logo" style="float:left;border-radius:50%;width:48px;height:48px"></img></div>
+                        <div style="padding-left:250px">
+                            <h1>LOGIN</h1>
+
+                        </div>
+                        
+                    </div>
+                    
+                    <div id="form">
+                        
+                    <form id="login">
+                    <div>Username:<input type="text" id="username" size="30"/></div>
+                      <div>Password:<input type="password" id="password" size="30" /></div>
+                   <div>   <a href="ForgotPass.html">Forgot Password?</a>
+                        <input id="btn" type="submit" value="Submit Form"  /></div>
+                       
+                    </form>
+                    </div>
+                    <hr/>
+                    <p style="text-align:center">Not Registered?Create an account now<a href="http://localhost:3000/signup.html">SignUp</a></p>
+                   
+                    
+ </div>	
+<script>
+	const form=document.getElementById('login');
+	form.addEventListener('submit',login)
+	async function login(event)
+	{
+		event.preventDefault()
+		const username=document.getElementById('username').value
+		const password=document.getElementById('password').value
+		const result=await fetch('/signup',{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json'
+			},	
+			body: JSON.stringify({
+				username,
+				password
+			})
+		}).then((res)=>res.json())
+		
+		if(result.status === 'ok'){
+		console.log('got the token: ',result.data)
+		window.location.href="confirmvisit.html";
+		}
+		else{
+		alert('Invalid Username/Password')
+		}
+		console.log(result)
+	}
+</script>     
+</body>
+</html>

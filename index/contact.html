@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Page</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  background-color: lightblue;
+}
+* {
+  box-sizing: border-box;
+}
+.dropbtn {
+  background-color: transparent; 
+  border: none;
+  cursor: pointer;
+  
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+.da{
+width: 30px;
+  height: 3px;
+  background-color: black;
+  margin: 4px 0;}
+.dropdown {
+  position: absolute;
+  top: 20px;
+  left: 6px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}	
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: lightblue;
+  font-size:20px;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+	padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: white;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: lightblue;
+  padding: 30px;
+}
+
+.column {
+  float: right;
+  width: 50%;
+  margin-top: 25px;
+  padding: 20px;
+}
+
+.fa {
+  padding: 30px;
+  font-size: 30px;
+  width: 80px;
+  text-align: right;
+  text-decoration: none;
+  margin: 10px 5px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-yahoo {
+  background: #430297;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+<ul>
+	<li><src="ap_logo.jpg" alt="logo" style="width:50px;float:right;"></img>
+	<li><a href="project1.html">Home</a></li>
+	<li><a href="about1.html">About</a></li>
+	 <li><a class="active"  href="http://localhost:9999/contact.html">Contact</a></li>
+</ul>
+
+<div class="container">
+  
+  <div style="text-align:left">
+    <h2>Contact</h2>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img src="ap.jpg" style="width:100%">
+    </div>
+    <div class="column">
+	
+	<div id="dest">
+	<form id="feedback-form">
+			<label >Name</label>
+				<input type="text" id="name" name="name" placeholder="Your name.." />
+			<label >Email</label>
+			   <input type="text" id="email" name="email" placeholder="Your email.."/>
+			<label>Subject</label>
+			   <input type="text" id="subject" name="subject" placeholder="Write something.."/>
+			<label>Message</label>
+			   <textarea id="message" name="message" placeholder="Send us a message.." style="height:120px"></textarea>
+			<input type="submit" value="Send Message"/>
+			</form>
+	</div>
+	
+	  <br><br><br><br><br><br>
+	  <h2><p align="left">Find us here: </p> </h2>
+	  <br>
+	  <table>
+	  <tr>
+	  <td>
+	  <a href="#" class="fa fa-facebook"><br>
+	  </td>
+	  <td>
+	  <a href="http://www.Facebook.com/">@RRRbuilders</a>
+	  </td>
+	  <td>
+	  <a href="#" class="fa fa-instagram"><br>
+	  </td>
+	  <td>
+	  <a href="http://www.Instagram.com/">@RRRbuilders</a>
+	  </td>
+	  <td>
+	   <a href="#" class="fa fa-yahoo"></a>
+	  </td>
+	  <td>
+	  <p>
+	  <a href="mailto:roslyn156@yahoo.com">roslyn156@yahoo.com</a><br>
+	  <a href="mailto:riyaj2204@yahoo.com">riyaaj2204@yahoo.com</a><br>
+	  <a href="mailto:riyaaaa71@yahoo.com">riyaaaa71@yahoo.com</a><br>
+	  </p>
+	  </td>
+	  </tr>
+	  </table>
+    </div>
+  </div>
+</div>
+
+<script>
+	const form=document.getElementById('feedback-form');
+	form.addEventListener('submit',Add_Feedback)
+	async function Add_Feedback(event)
+	{
+		event.preventDefault()
+		const name=document.getElementById('name').value
+		const email=document.getElementById('email').value
+		const subj=document.getElementById('subject').value
+		const message=document.getElementById('message').value
+		const result=await fetch('/feed-back',{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json'
+			},	
+			body: JSON.stringify({
+				name,
+				email,
+				subj,
+				message
+			})
+		}).then((res)=>res.json())
+		
+		if(result.status === 'ok'){
+		alert(result.data);
+		}
+		else{
+		alert('Error has occured')
+		}
+		console.log(result)
+	}
+</script>
+</body>
+</html>

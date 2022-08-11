@@ -1,0 +1,46 @@
+<!Doctype html>
+<html>
+<style>
+.btn-group button {
+  position: relative;
+  left: 300px;
+  background-color: #A9A9A9;
+  border: 1px black; 
+  color: yellow; 
+  padding: 40px 40px;
+  cursor: pointer;
+  float: left;
+}
+
+  body{
+  background-image:url("ap.jpg");
+  background-position:center;
+  background-repeat:no-repeat;
+  }
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: " ";
+  clear: both;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: black;
+}
+</style>
+<body>
+
+<h1><p align="center">Login/Register HERE </p></h1> <br><br><br>
+
+<div class="btn-group" style="width:100%" >
+  <button onclick="document.location='http://localhost:9999/loginPage.html'" style="width:50%"><b>LOGIN</b></button>
+  <br><br><br><br><br><br><br><br>
+  <button onclick="document.location='http://localhost:9999/signup.html'" style="width:50%"><b>REGISTER</b></button>
+</div>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>      
+<style> 
+body {
+background-image:url("bgpic.jpg");
+background-position:center;
+background-repeat:no-repeat;
+
+font-family: 'Raleway', sans-serif;
+font-weight: 400;
+color: #fff;
+letter-spacing: 1px;
+align: center;
+}
+
+.container {
+background-color: #fafafa;
+margin: 50px;
+box-shadow: 5px 5px 5px rgba(0, 0, 0, .1);
+display: grid;
+grid-template-columns: 40% 60%;
+}
+
+.container-time {
+background-color: rgba(0, 0, 0, .95);
+padding: 50px;
+outline: 3px dashed #998100;
+outline-offset: -30px;
+text-align: center;
+}
+
+.heading {
+font-size: 35px;
+text-transform: uppercase;
+}
+
+.heading-days {
+color:#998100;
+font-size: 30px;
+
+}
+
+.heading-phone {
+font-size: 20px;
+}
+
+
+.container-form {
+padding: 20px 0;
+margin: 0 auto;
+color: #000;
+}
+
+form {
+display: grid;
+grid-row-gap: 20px;
+}
+
+form p {
+font-weight: 600;
+}
+.form-field {
+display: flex;
+justify-content: space-between;
+}
+
+input,select {
+padding: 10px 15px;
+}
+
+
+.btn {
+background-color: rgba(0, 0, 0, .95);
+color: #fff;
+padding: 10px 20px;
+border: none;
+font-size: 18px;
+border-radius: 100px;
+}
+
+</style>
+</head>
+<body >
+<div class="container">
+<div class="container-time">
+<h2 class="heading">BOOK YOUR VISIT NOW</h2>
+
+<h3 class="heading-days">Monday-Saturday</h3>
+<br>
+<p>7am - 10am (first slot)</p>
+<p>12pm - 3pm (second slot)</p>
+<p>4pm - 7pm (third slot)</p>
+
+<hr>
+
+<h4 class="heading-phone">Call Us: +91 9754030258</h4>
+</div>
+
+<div class="container-form">
+
+<form id="slot">
+<h2 class="heading heading-yellow">Online Reservation</h2>
+
+<div class="form-field">
+<p>Your Name</p>
+<input id="name" type="text" placeholder="Your Name">
+</div>
+<div class="form-field">
+<p>Your email</p>
+<input id="email" type="email" placeholder="Your email">
+</div>
+<div class="form-field">
+<p>Date</p>
+<input id="date" type="date">
+</div>
+<div class="form-field">
+<p>Pick the time slot of your convenience:</p>
+<select name="select" id="slot_op">
+<option value="1">1st slot</option>
+<option value="2">2nd slot</option>
+<option value="3">3rd slot</option>
+</select>
+</div>
+
+<button type="submit" class="btn">Submit</button>
+</form>
+</div>
+</div>
+<script>
+	const form=document.getElementById('slot');
+	form.addEventListener('submit',confirm)
+	async function confirm(event)
+	{
+		event.preventDefault()
+		const name=document.getElementById('name').value
+		const email=document.getElementById('email').value
+		const date=document.getElementById('date').value
+		const slot=document.getElementById('slot_op').value
+		
+		const result=await fetch('/confirmation',{
+			method:'POST',
+			headers:{
+				'Content-Type':'application/json'
+			},	
+			body: JSON.stringify({
+				name,
+				email,
+				date,
+				slot
+			})
+		}).then((res)=>res.json())
+		
+		if(result.status === 'ok'){
+		alert(result.data)
+		window.location.href="thankyou.html";
+		}
+		else{
+		alert('Error occured')
+		}
+		console.log(result)
+	}
+</script> 
+</body>
+  
+</html>  
